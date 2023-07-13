@@ -1,0 +1,20 @@
+set serveroutput on;
+declare
+v_input number  := 100;
+v_counter number := 1;
+v_odd_number clob;
+v_even_number clob;
+
+begin
+while (v_counter <= v_input) loop
+if (mod(v_counter, 2) = 0) then 
+v_even_number := v_even_number||','||v_counter;
+else
+v_odd_number := v_odd_number||','||v_counter;
+end if;
+v_counter := v_counter+1;
+end loop;
+dbms_output.put_line('Even Numbers = '||trim(leading ',' from v_even_number)); 
+dbms_output.put_line('Odd Numbers = '||trim(leading ',' from v_odd_number)); 
+
+end;
